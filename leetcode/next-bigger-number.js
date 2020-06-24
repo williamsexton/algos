@@ -2,7 +2,7 @@ function nextBigger(n) {
   var numArray = String(n).split("")
   var digitCollector = [];
   var numSwap = 0;
-  var collectCounter = numArray.length - 1
+  // var collectCounter = numArray.length - 1
   var isChanged = false;
 
   while (numArray.length > 0) {
