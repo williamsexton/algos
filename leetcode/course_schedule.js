@@ -6,20 +6,18 @@
 [0, 1], [1, 2], [3, 4]
 var canFinish = function (numCourses, prerequisites) {
   while (prerequisites.length) {
-    let left = [];
-    let right = [];
+    let left = new Set();
+    let right = new Set();
     for (let arr of prerequisites) {
-      left.push(arr[0])
-      right.push(arr[1])
+      left.add(arr[0])
+      right.add(arr[1])
     };
-    let exclude = right.filter(ele => {
-      return !left.includes(ele)
-    });
+    let exclude = new Set([...right].filter(ele => {
+      return !left.has(ele)
+    }));
     let prevLength = prerequisites.length;
     prerequisites = prerequisites.filter(pair => {
-      return !exclude.some(ele => {
-        return pair.includes(ele)
-      })
+      return !exclude.has(pair[1])
     });
     if (prerequisites.length === prevLength) return false;
   }
