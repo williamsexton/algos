@@ -8,12 +8,13 @@ var kLengthApart = function (nums, k) {
   let counting = false;
   for (let num of nums) {
     if (num === 1) {
-      if (counting && num === 1)
-        counting = true;
+      if (counting && num === 1 && count < k) return false;
+      counting = true;
       count = 0
     }
     if (num === 0 && counting) {
       count++
     }
   }
+  return true;
 };
