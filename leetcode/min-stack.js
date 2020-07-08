@@ -13,7 +13,7 @@ var MinStack = function () {
  */
 MinStack.prototype.push = function (x) {
 
-  (this.stack.length === 0 || this.stack[this.stack.length - 1][1] <= x) ?
+  (this.stack.length === 0 || this.stack[this.stack.length - 1][1] >= x) ?
     this.stack.push([x, x]) : this.stack.push([x, this.stack[this.stack.length - 1][1]])
 
 
