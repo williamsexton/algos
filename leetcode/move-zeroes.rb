@@ -1,18 +1,13 @@
-/**
- * @param {number[]} nums
- * @return {void} Do not return anything, modify nums in-place instead.
- */
-var moveZeroes = function(nums) {
-
-    sorted = false
-    while (!sorted){
-        sorted = true
-    
-        for(let i=0; i<nums.length-1; i++){
-            if (nums[i] === 0 && nums[i+1] !== 0) {
-                [nums[i], nums[i+1]] = [nums[i+1],nums[i]]
-                sorted = false
-            }
-        }
-    }
-};
+# @param {Integer[]} nums
+# @return {Void} Do not return anything, modify nums in-place instead.
+def move_zeroes(nums)
+    i = 0
+    (0...nums.length).each do
+        if nums[i] == 0
+            nums.push(nums.delete_at(i))
+        else
+            i += 1
+        end
+    end
+    nums
+end
